@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <title>HomePage</title>
+        <link rel='stylesheet' type='text/css' href='{% static 'homepage.css' %}'
+    </head>
+    <body>
+        <div class='content'>
+            <div class='query'>
+                <h1> Customer </h1>
+                <form Method='post' action='' >
+                    {% csrf_token %}
+                    <input type='text' name='query' placeholder='type SQL query'>
+                    <button type='Submit' class='btn' style='cursor:pointer;'>Submit </button>
+                </form>
+            </div>
+            <div class='result'>
+                {% for i in result %}
+                    <p> {{i.Name}} - {{i.Customer_id}} - {{i.Age}} - {{i.Address}} - {{i.Phone_number}} - {{i.Account_number}}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
